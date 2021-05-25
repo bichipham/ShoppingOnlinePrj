@@ -1,0 +1,23 @@
+.container {
+    background-color: rgb(1, 127, 355);
+    flex-direction: row;
+    width: 100%;
+    height: 100px;
+    border-top: 1px solid #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button {
+    background-color: rgb(13,92,182);
+    height: 40px;
+    width: 120px;
+    outline: none;
+    color: white;
+    border: 0px;
+}
+.searchbar {
+    height: 40px;
+    width: 500px;
+    border: 0px;
+}
