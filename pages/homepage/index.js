@@ -7,27 +7,31 @@ import ListProduct from '../components/listproduct'
 export default function HomePage () {
   const renderHomeBanner = () => {
     return (
-          <>
-              <img src={'/banner.png'} width={1000} height={200}/>
-          </>
+          <div style={{ flexDirection: 'row' }}>
+              <img src={'/banner.png'} width='900px' height='300px'/>
+              <img src={'https://salt.tikicdn.com/cache/w408/ts/banner/69/9a/36/dcff148edf2a3918a8ac974d4b75cb20.png.jpg' } width='300px' height='300px'/>
+          </div>
     )
   }
   const renderCategory = (cate) => {
     const { id, name, img } = cate || {}
     return (
-      <a href={'./category/' + id } key={id}>
-        <div>
-        <img src={img} alt={name} height="150" width="150" />
-        <h4>{name}</h4>
-        </div>
-      </a>
+      <div>
+        <a href={'./category/' + id } key={id} className={styles.cateView}>
+          <div >
+            <div className={styles.imgCate}>
+              <img src={img} alt={name}/>
+            </div>
+            <span>{name}</span>
+          </div>
+        </a>
+      </div>
     )
   }
 
   const renderListCate = () => {
     return (
       <>
-        <h2>Danh mục nổi bật</h2>
         <div className={styles.list}>
           {LIST_CATE.map((item, index) => (
             renderCategory(item)
@@ -35,14 +39,57 @@ export default function HomePage () {
         </div>
       </>)
   }
+
+  const renderSearchItem = (search) => {
+    const { id, name, img } = search || {}
+    return (
+      <div>
+        <a href={'./category/' + id } key={id} className={styles.cateView}>
+          <div >
+            <div className={styles.imgCate}>
+              <img src={img} alt={name}/>
+            </div>
+            <span>{name}</span>
+          </div>
+        </a>
+      </div>
+    )
+  }
+
+  const renderLisSearch = () => {
+    return (
+      <>
+        <div className={styles.list}>
+          {LIST_CATE.map((item, index) => (
+            renderSearchItem(item)
+          ))}
+        </div>
+      </>)
+  }
+
   return (
-    <div className={styles.container}>
-      <main>
+    <>
+      <main className={styles.container}>
         {renderHomeBanner()}
-        {renderListCate()}
-        <h2>Sản phẩm</h2>
-        <ListProduct list={LIST_PRODUCTS}/>
+        <div className={styles.block}>
+          <div className={styles.header}>
+            <span>Danh mục nổi bật</span>
+          </div>
+          {renderListCate()}
+        </div>
+        <div className={styles.block}>
+          <div className={styles.header}>
+            <span>Tìm kiếm nổi bật</span>
+          </div>
+          {renderLisSearch()}
+        </div>
+        <div className={styles.block}>
+          <div className={styles.header}>
+            <span className={styles.header}>Sản phẩm</span>
+          </div>
+          <ListProduct list={LIST_PRODUCTS}/>
+        </div>
       </main>
-    </div>
+    </>
   )
 }
