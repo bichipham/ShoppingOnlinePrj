@@ -13,8 +13,8 @@
 
 }
 .imgCate {
-  width: 60px;
-  width: 60px;
+  max-width: 60px;
+  max-height: 60px;
   align-items: center;
 }
 .imgCate img {
@@ -23,14 +23,20 @@
 }
 .cateView {
   align-items: center;
+  margin: 19px 10px;
+  text-decoration: none;
+  text-decoration-line: none;
 }
 .cateView span {
   font-size: 15px;
   line-height: 20px;
+  color: black;
 }
 .block {
   margin: 20px 0px;
-  background-color: burlywood;
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px 20px;
 }
 .block .header {
   margin: 15px 0;
@@ -39,6 +45,43 @@
   font-size: 20px;
   line-height: 25px;
   font-weight: 600;
+}
+
+.listKeyword {
+  display: grid;
+  grid-template-columns:repeat(4, 1fr)
+}
+
+.listImg {
+  flex-direction: row;
+  padding: 8px
+}
+
+.listImg img {
+  margin: 0 2px;
+}
+
+.searchView {
+  border-radius: 15px;
+  border-width: 1px;
+  border-color: rgb(238, 238, 238);
+  border-style: solid;
+  margin: 0 15px;
+}
+
+.searchView:nth-child(1) .searchText {
+  background-color:rgb(211, 238, 255);
+}
+.searchView:nth-child(2) .searchText {
+  background-color:rgb(252, 248, 228);
+}
+.searchView:nth-child(3) .searchText {
+  background-color:rgb(255, 241, 241);
+}
+
+.searchText {
+  border-radius: 15px;
+  padding: 10px 10px;
 }
   
   

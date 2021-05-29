@@ -59,12 +59,18 @@ export const POPULAR_KEYWORD = [
   {
     id: '01',
     searchKey: 'quần áo',
-    img: 'https://salt.tikicdn.com/cache/w444/ts/product/65/53/50/6d14ebba13645d761886ef6410eb61a0.jpg'
+    imgList: [
+      'https://salt.tikicdn.com/cache/w444/ts/product/50/2c/46/38fee585d569862bc41da4273f6add47.jpg',
+      'https://salt.tikicdn.com/cache/w444/ts/product/59/e2/77/e73c097586e8cca5f4220970baa51930.jpg'
+    ]
   },
   {
     id: '02',
-    name: 'váy đầm',
-    img: 'https://salt.tikicdn.com/cache/w444/ts/product/a8/6f/0b/df5ed57888a787a4465db191bc442d37.png'
+    searchKey: 'váy đầm',
+    imgList: [
+      'https://salt.tikicdn.com/cache/w444/ts/product/50/2c/46/38fee585d569862bc41da4273f6add47.jpg',
+      'https://salt.tikicdn.com/cache/w444/ts/product/59/e2/77/e73c097586e8cca5f4220970baa51930.jpg'
+    ]
   },
   {
     id: '03',

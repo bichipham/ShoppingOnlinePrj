@@ -1,6 +1,9 @@
 .product {
   padding: 10px 10px;
   justify-content: center;
+  text-decoration: none;
+  text-decoration-line: none;
+  color: #000;
 }
 .list {
     display: grid;

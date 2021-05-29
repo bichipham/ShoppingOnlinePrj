@@ -6,7 +6,7 @@ import styles from './category.module.css'
 import HeaderBar from '../components/headercpn'
 import ListProduct from '../components/listproduct'
 
-export default function CategoryAA () {
+export default function Category () {
   const router = useRouter()
   const { id } = router.query
   const filterProducts = LIST_PRODUCTS.filter((item) => { return item.cateId === id })

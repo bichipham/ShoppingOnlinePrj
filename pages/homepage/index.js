@@ -1,10 +1,12 @@
 
 import React from 'react'
-import { LIST_PRODUCTS, LIST_CATE } from '../../utils/constant'
+import { LIST_PRODUCTS, LIST_CATE, POPULAR_KEYWORD } from '../../utils/constant'
 import styles from './homepage.module.css'
 import ListProduct from '../components/listproduct'
+import { useRouter } from 'next/router'
 
 export default function HomePage () {
+  const router = useRouter()
   const renderHomeBanner = () => {
     return (
           <div style={{ flexDirection: 'row' }}>
@@ -16,16 +18,16 @@ export default function HomePage () {
   const renderCategory = (cate) => {
     const { id, name, img } = cate || {}
     return (
-      <div>
         <a href={'./category/' + id } key={id} className={styles.cateView}>
           <div >
             <div className={styles.imgCate}>
               <img src={img} alt={name}/>
             </div>
-            <span>{name}</span>
+            <div style={{ marginTop: 5 }}>
+              <span>{name}</span>
+            </div>
           </div>
         </a>
-      </div>
     )
   }
 
@@ -41,26 +43,29 @@ export default function HomePage () {
   }
 
   const renderSearchItem = (search) => {
-    const { id, name, img } = search || {}
+    const { id, searchKey, imgList } = search || {}
     return (
-      <div>
-        <a href={'./category/' + id } key={id} className={styles.cateView}>
-          <div >
-            <div className={styles.imgCate}>
-              <img src={img} alt={name}/>
+
+        <a key={id} className={styles.searchView} onClick={() => router.push('./search?s=' + searchKey)}>
+            <div className={styles.listImg} >
+              {imgList.map((imgUrl, index) => (
+                <img src={imgUrl} width='50px' height='50px' key={id + '_' + index}/>
+              ))}
             </div>
-            <span>{name}</span>
-          </div>
+            <div className={styles.searchText} >
+              <span>{searchKey}</span>
+            </div>
+
         </a>
-      </div>
+
     )
   }
 
   const renderLisSearch = () => {
     return (
       <>
-        <div className={styles.list}>
-          {LIST_CATE.map((item, index) => (
+        <div className={styles.listKeyword}>
+          {POPULAR_KEYWORD.map((item, index) => (
             renderSearchItem(item)
           ))}
         </div>

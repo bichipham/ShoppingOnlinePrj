@@ -18,10 +18,10 @@ class MyApp extends App {
 
     const { Component, pageProps } = this.props
     return (
-      <>
+      <div style={{ backgroundColor: 'rgb(239, 239, 239)' }}>
           <Component {...pageProps}/>
 
-      </>
+      </div>
     )
   }
 }

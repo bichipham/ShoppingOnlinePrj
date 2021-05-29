@@ -8,6 +8,7 @@ import ListProduct from '../components/listproduct'
 const SearchPage = () => {
   const router = useRouter()
   const { s } = router.query
+  console.log('!!!!!!!!1 s =' + s)
   const [filterProducts, setFilterProducts] = useState([])
 
   useEffect(() => {

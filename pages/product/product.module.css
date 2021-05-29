@@ -1,0 +1,48 @@
+.container {
+    padding: 0 5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.block {
+    background-color: white;
+    border-radius: 15px;
+    padding: 10px 10px;
+    margin-bottom: 20px;
+    flex-direction: row;
+    flex: 1;
+    display: flex;
+}
+.imgView {
+    margin: 20px 20px
+}
+.info {
+    flex-direction: column;
+    display: flex;
+}
+.imputView {
+    display: flex;
+}
+.imputView button {
+    border: 0px;
+    outline: none;
+}
+.imputView input {
+    height: 20px;
+    width:  30px;
+}
+.btnBuy {
+    margin-top: 20px;
+    width: 200px;
+}
+
+.btnBuy button {
+    background-color: rgb(255, 57, 69);
+    width: 100%;
+    height: 40px;
+    color: white;
+    border: 0px;
+    outline: none;
+}
+
