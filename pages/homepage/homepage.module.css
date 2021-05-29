@@ -1,19 +1,44 @@
 .container {
-    background-color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 .list {
   display: grid;
-  grid-template-columns:repeat(5, 1fr)
+  grid-template-columns:repeat(6, 1fr)
 }
 .name {
 
 }
 .price {
 
+}
+.imgCate {
+  width: 60px;
+  width: 60px;
+  align-items: center;
+}
+.imgCate img {
+  max-width: 60px;
+  max-height: 60px;
+}
+.cateView {
+  align-items: center;
+}
+.cateView span {
+  font-size: 15px;
+  line-height: 20px;
+}
+.block {
+  margin: 20px 0px;
+  background-color: burlywood;
+}
+.block .header {
+  margin: 15px 0;
+}
+.block .header span {
+  font-size: 20px;
+  line-height: 25px;
+  font-weight: 600;
 }
   
   

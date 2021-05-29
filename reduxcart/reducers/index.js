@@ -83,7 +83,7 @@ function todoProduct (state = initProduct, action) {
       return state
   }
 }
-const ShopApp = combineReducers({
+const rootReducer = combineReducers({
   _todoProduct: todoProduct
 })
-export default ShopApp
+export default rootReducer
