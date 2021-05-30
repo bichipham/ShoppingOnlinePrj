@@ -20,6 +20,7 @@ function todoProduct (state = initProduct, action) {
         ...state
       }
     case ADD_CART:
+      console.log('!!!!!!!!!! bichi ADD_CRAT ' + JSON.stringify(action.payload))
       if (state.numberCart === 0) {
         const cart = {
           id: action.payload.id,

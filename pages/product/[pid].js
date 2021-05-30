@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 
 import React, { useRef, useEffect, useLayoutEffect, useState } from 'react'
 import { useRouter } from 'next/router'
@@ -6,14 +7,16 @@ import HeaderBar from '../components/headercpn'
 import styles from './product.module.css'
 import { formatNumberToMoney } from '../../utils/utils'
 import { QualityInput, ListProduct } from '../components'
+import { AddCart } from '../../reduxcart/actions'
+import { connect } from 'react-redux'
 
-export default function Product () {
+const Product = ({ AddCart }) => {
   const router = useRouter()
   const { pid } = router.query
-  console.log('!!!!!1pid ' + pid)
+  console.log('!!!!! pid ' + pid)
   const product = LIST_PRODUCTS.find((item) => { return item.id === pid })
   const { cateId } = product || {}
-  const { name, price, img } = product || {}
+  const { name, price, img, id } = product || {}
   const amount = useRef(1)
   const [listSuggest, setListSuggest] = useState([])
 
@@ -43,7 +46,7 @@ export default function Product () {
             <h3>Số lượng: </h3>
             <QualityInput initQuality={1} minimumQuality={0} callback={onChangeQuality} />
             <div className={styles.btnBuy}>
-              <button>Chọn mua</button>
+              <button onClick={() => AddCart(product)}>Chọn mua</button>
             </div>
           </div>
         </div>
@@ -53,7 +56,20 @@ export default function Product () {
             <ListProduct list={listSuggest}/>
           </div>
         </div>
+        <div>
+          <img src={'https://salt.tikicdn.com/ts/tka/79/03/75/06d782080e61697b8bbf4909f9bd7e16.png' } width='100%' height='300px'/>
+        </div>
       </div>
     </>
   )
 }
+
+const mapStateToProps = state => ({
+
+})
+
+const mapDispatchToProps = {
+  AddCart: AddCart
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Product)

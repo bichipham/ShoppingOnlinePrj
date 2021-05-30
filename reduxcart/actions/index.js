@@ -22,6 +22,7 @@ export function GetNumberCart () {
 }
 
 export function AddCart (payload) {
+  console.log('!!!!!!!!!! action AddCart')
   return {
     type: 'ADD_CART',
     payload
