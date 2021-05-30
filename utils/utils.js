@@ -53,3 +53,12 @@ export const formatNumberToMoney = (number, defaultNum, predicate) => {
 
   return result + ' ' + predicate
 }
+
+export const calculateTotalMoney = (carts) => {
+  let total = 0
+  carts.forEach(item => {
+    const { price = 0, quantity = 0 } = item || {}
+    total += price * quantity
+  })
+  return total
+}

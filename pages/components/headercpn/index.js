@@ -31,7 +31,9 @@ export default function HeaderBar ({ keyword }) {
             />
             <button className={styles.button} type='submit'>Tìm kiếm</button>
           </form>
-          <img src={'/shopping-cart.png'} width={30} height={30}/>
+          <Link href="/shoppingcart">
+            <img src={'/shopping-cart.png'} width={30} height={30}/>
+          </Link>
         </div>
 
   )

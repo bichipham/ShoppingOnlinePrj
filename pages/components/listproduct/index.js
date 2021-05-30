@@ -4,13 +4,14 @@ import styles from './listproduct.module.css'
 import PropTypes from 'prop-types'
 import { formatNumberToMoney } from '../../../utils/utils'
 import { useRouter } from 'next/router'
-
+import Link from 'next/link'
 export default function ListProduct ({ list }) {
   const router = useRouter()
   const renderProduct = (product) => {
     const { id, name, img, price } = product || {}
     return (
-            <a key={id} className={styles.product} href={'/product/' + id }>
+      <Link href={'/product/' + id } key={id} >
+            <a className={styles.product} >
               <div className={styles.imgView}>
                   <img src={img} alt={name}/>
               </div>
@@ -23,6 +24,7 @@ export default function ListProduct ({ list }) {
                   </div>
               </div>
             </a>
+      </Link>
     )
   }
   return (

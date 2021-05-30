@@ -16,6 +16,7 @@ class MyApp extends App {
 
   render () {
     // pageProps that were returned  from 'getInitialProps' are stored in the props i.e. pageprops
+    console.log('!!!!!!!!1 MAIN RENDER !!!!!!!!!')
     const store = createStore(rootReducer)
     const { Component, pageProps } = this.props
     return (

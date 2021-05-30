@@ -7,13 +7,12 @@ import HeaderBar from '../components/headercpn'
 import styles from './product.module.css'
 import { formatNumberToMoney } from '../../utils/utils'
 import { QualityInput, ListProduct } from '../components'
-import { AddCart } from '../../reduxcart/actions'
+import { AddCart, GetAllProduct } from '../../reduxcart/actions'
 import { connect } from 'react-redux'
 
-const Product = ({ AddCart }) => {
+const Product = ({ products, addCart }) => {
   const router = useRouter()
   const { pid } = router.query
-  console.log('!!!!! pid ' + pid)
   const product = LIST_PRODUCTS.find((item) => { return item.id === pid })
   const { cateId } = product || {}
   const { name, price, img, id } = product || {}
@@ -21,7 +20,7 @@ const Product = ({ AddCart }) => {
   const [listSuggest, setListSuggest] = useState([])
 
   const onChangeQuality = (quality) => {
-    amount.current = quality
+    amount.current = quality.qual
   }
 
   useEffect(() => {
@@ -44,9 +43,9 @@ const Product = ({ AddCart }) => {
             <h1>{name}</h1>
             <h2>{formatNumberToMoney(price, 0, 'đ')}</h2>
             <h3>Số lượng: </h3>
-            <QualityInput initQuality={1} minimumQuality={0} callback={onChangeQuality} />
+            <QualityInput initQuality={1} minimumQuality={1} callback={onChangeQuality} />
             <div className={styles.btnBuy}>
-              <button onClick={() => AddCart(product)}>Chọn mua</button>
+              <button onClick={() => addCart({ ...product, ...{ quality: amount.current } })}>Chọn mua</button>
             </div>
           </div>
         </div>
@@ -65,11 +64,11 @@ const Product = ({ AddCart }) => {
 }
 
 const mapStateToProps = state => ({
-
+  products: GetAllProduct(state)
 })
 
 const mapDispatchToProps = {
-  AddCart: AddCart
+  addCart: AddCart
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Product)
