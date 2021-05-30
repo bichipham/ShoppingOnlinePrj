@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useCallback } from 'react'
 
-const QualityInput = ({ initQuality, minimumQuality = 0, callback }) => {
+export default function QualityInput ({ initQuality, minimumQuality = 0, callback }) {
   const [quality, setQuality] = useState(initQuality)
 
   const onChange = type => {
@@ -25,5 +25,3 @@ const QualityInput = ({ initQuality, minimumQuality = 0, callback }) => {
     </div>
   )
 }
-
-export default QualityInput

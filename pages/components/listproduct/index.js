@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import { formatNumberToMoney } from '../../../utils/utils'
 import { useRouter } from 'next/router'
 
-const ListProduct = ({ list }) => {
+export default function ListProduct ({ list }) {
   const router = useRouter()
   const renderProduct = (product) => {
     const { id, name, img, price } = product || {}
@@ -39,4 +39,3 @@ const ListProduct = ({ list }) => {
 ListProduct.propTypes = {
   list: PropTypes.array
 }
-export default ListProduct
