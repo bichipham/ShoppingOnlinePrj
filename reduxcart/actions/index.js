@@ -15,9 +15,10 @@ export function GetAllProduct (payload) {
 }
 
 /* GET NUMBER CART */
-export function GetNumberCart () {
+export function GetNumberCart (payload) {
   return {
-    type: 'GET_NUMBER_CART'
+    type: 'GET_NUMBER_CART',
+    payload
   }
 }
 
@@ -40,12 +41,12 @@ export function DeleteCart (payload) {
   }
 }
 
-export function IncreaseQuantity (payload) {
-  return {
-    type: 'INCREASE_QUANTITY',
-    payload
-  }
-}
+// export function IncreaseQuantity (payload) {
+//   return {
+//     type: 'INCREASE_QUANTITY',
+//     payload
+//   }
+// }
 export function DecreaseQuantity (payload) {
   return {
     type: 'DECREASE_QUANTITY',

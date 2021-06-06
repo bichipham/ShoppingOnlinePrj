@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import React, { useRef, useEffect, useLayoutEffect, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { LIST_PRODUCTS } from '../../utils/constant'
 import HeaderBar from '../components/headercpn'
@@ -10,12 +10,12 @@ import { QualityInput, ListProduct } from '../components'
 import { AddCart, GetAllProduct } from '../../reduxcart/actions'
 import { connect } from 'react-redux'
 
-const Product = ({ products, addCart }) => {
+const Product = ({ addCart }) => {
   const router = useRouter()
   const { pid } = router.query
   const product = LIST_PRODUCTS.find((item) => { return item.id === pid })
   const { cateId } = product || {}
-  const { name, price, img, id } = product || {}
+  const { name, price, img } = product || {}
   const amount = useRef(1)
   const [listSuggest, setListSuggest] = useState([])
 
@@ -45,7 +45,7 @@ const Product = ({ products, addCart }) => {
             <h3>Số lượng: </h3>
             <QualityInput initQuality={1} minimumQuality={1} callback={onChangeQuality} />
             <div className={styles.btnBuy}>
-              <button onClick={() => addCart({ ...product, ...{ quality: amount.current } })}>Chọn mua</button>
+              <button onClick={() => addCart({ ...product, quality: amount.current })}>Chọn mua</button>
             </div>
           </div>
         </div>
@@ -64,7 +64,6 @@ const Product = ({ products, addCart }) => {
 }
 
 const mapStateToProps = state => ({
-  products: GetAllProduct(state)
 })
 
 const mapDispatchToProps = {

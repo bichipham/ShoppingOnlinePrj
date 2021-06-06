@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react'
 import styles from './header.module.css'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import CartIcon from '../carticon'
 
 // eslint-disable-next-line react/prop-types
 export default function HeaderBar ({ keyword }) {
@@ -31,9 +32,7 @@ export default function HeaderBar ({ keyword }) {
             />
             <button className={styles.button} type='submit'>Tìm kiếm</button>
           </form>
-          <Link href="/shoppingcart">
-            <img src={'/shopping-cart.png'} width={30} height={30}/>
-          </Link>
+          <CartIcon />
         </div>
 
   )

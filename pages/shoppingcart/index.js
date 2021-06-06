@@ -1,17 +1,16 @@
 /* eslint-disable react/prop-types */
 
-import React, { useState, useCallback } from 'react'
-import { GetAllProduct, GetNumberCart, IncreaseQuantity, DecreaseQuantity } from '../../reduxcart/actions'
+import React, { useCallback } from 'react'
+import { GetAllProduct, DecreaseQuantity, AddCart } from '../../reduxcart/actions'
 import { connect } from 'react-redux'
 import HeaderBar from '../components/headercpn'
 import styles from './shoppingcart.module.css'
 import { QualityInput } from '../components'
 import { calculateTotalMoney, formatNumberToMoney } from '../../utils/utils'
 
-function ShoppingCart ({ products, total, increaseQuantity, decreaseQuantity }) {
+function ShoppingCart ({ products, decreaseQuantity, addCart }) {
   const { Carts = [] } = products?.payload?._todoProduct
   const totalMoney = calculateTotalMoney(Carts)
-  console.log('!!!!!!!!!! cart ' + JSON.stringify(Carts))
 
   const renderCartItem = (item) => {
     const { name, img, id, price, quantity } = item || {}
@@ -19,9 +18,9 @@ function ShoppingCart ({ products, total, increaseQuantity, decreaseQuantity }) 
     const onChangeQuality = useCallback(
       quality => {
         if (quality.type === 'add') {
-          increaseQuantity(item)
+          addCart({ id: item.id, quality: 1 })
         } else if (quality.type === 'minus') {
-          decreaseQuantity(item)
+          decreaseQuantity({ id: item.id, quality: 1 })
         }
       },
       []
@@ -60,13 +59,12 @@ function ShoppingCart ({ products, total, increaseQuantity, decreaseQuantity }) 
 }
 
 const mapStateToProps = state => ({
-  products: GetAllProduct(state),
-  total: GetNumberCart(state)
+  products: GetAllProduct(state)
 })
 
 const mapDispatchToProps = {
-  increaseQuantity: IncreaseQuantity,
-  decreaseQuantity: DecreaseQuantity
+  decreaseQuantity: DecreaseQuantity,
+  addCart: AddCart
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShoppingCart)

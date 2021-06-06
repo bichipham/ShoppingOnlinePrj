@@ -18,7 +18,7 @@ export default function HomePage () {
   const renderCategory = (cate) => {
     const { id, name, img } = cate || {}
     return (
-        <a href={'./category/' + id } key={id} className={styles.cateView}>
+        <a href={'./category/' + id } key={id} className={styles.cateView} onClick={() => router.push('./category/' + id)}>
           <div >
             <div className={styles.imgCate}>
               <img src={img} alt={name}/>
@@ -61,7 +61,7 @@ export default function HomePage () {
     )
   }
 
-  const renderLisSearch = () => {
+  const renderListSearch = () => {
     return (
       <>
         <div className={styles.listKeyword}>
@@ -86,7 +86,7 @@ export default function HomePage () {
           <div className={styles.header}>
             <span>Tìm kiếm nổi bật</span>
           </div>
-          {renderLisSearch()}
+          {renderListSearch()}
         </div>
         <div className={styles.block}>
           <div className={styles.header}>

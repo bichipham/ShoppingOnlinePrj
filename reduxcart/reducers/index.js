@@ -11,20 +11,18 @@ const initProduct = {
 function todoProduct (state = initProduct, action) {
   console.log('!!!!!!!!!!!!1 todoProduct action ' + JSON.stringify(action))
   console.log('!!!!!!!!!!!!1 todoProduct state ' + JSON.stringify(state))
-  let selectItem = {}
-  let newCart = []
+  let exitItemIndex = -1
   switch (action.type) {
     case GET_ALL_PRODUCT:
       return {
-        ...state,
-        _products: action.payload
+        ...state
       }
     case GET_NUMBER_CART:
       return {
         ...state
       }
     case ADD_CART:
-      const exitItemIndex = state.Carts.findIndex((item, index) => { return item.id === action.payload.id })
+      exitItemIndex = state.Carts.findIndex((item, index) => { return item.id === action.payload.id })
       if (exitItemIndex >= 0) {
         state.Carts[exitItemIndex].quantity += action.payload.quality
       } else {
@@ -37,29 +35,19 @@ function todoProduct (state = initProduct, action) {
         }
         state.Carts.push(cart)
       }
+      state.numberCart += action.payload.quality
       return {
-        ...state,
-        numberCart: state.numberCart + action.payload.quality
-      }
-
-    case INCREASE_QUANTITY:
-      selectItem = state.Carts.find(item => { return action.payload.id === item.id })
-      selectItem.quantity++
-      newCart = { ...state.Carts, ...selectItem }
-      state.numberCart++
-      return {
-        ...state,
-        ...{ Cart: newCart }
+        ...state
       }
 
     case DECREASE_QUANTITY:
-      selectItem = state.Carts.find(item => { return action.payload.id === item.id })
-      selectItem.quantity--
-      newCart = { ...state.Carts, ...selectItem }
-      state.numberCart--
+      exitItemIndex = state.Carts.findIndex((item, index) => { return item.id === action.payload.id })
+      if (exitItemIndex >= 0) {
+        state.Carts[exitItemIndex].quantity -= action.payload.quality
+      }
+      state.numberCart -= action.payload.quality
       return {
-        ...state,
-        ...{ Cart: newCart }
+        ...state
       }
 
     case DELETE_CART:
