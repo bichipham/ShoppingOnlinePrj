@@ -10,7 +10,9 @@ export default function QualityInput ({ initQuality, minimumQuality = 1, callbac
     else if (quality === minimumQuality) qual = quality
     else qual = quality - 1
     setQuality(qual)
-    if (callback && typeof callback === 'function') callback({ qual: qual, type: type })
+    if (callback && typeof callback === 'function') {
+      callback({ qual: qual, type: type })
+    }
   }
 
   return (

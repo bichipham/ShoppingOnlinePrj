@@ -11,7 +11,7 @@ import { ListProduct } from '../components/listproduct'
 import { AddCart, GetAllProduct } from '../../reduxcart/actions'
 import { connect } from 'react-redux'
 
-const Product = ({ addCart }) => {
+const Product = ({ products, addCart }) => {
   const router = useRouter()
   const { pid } = router.query
   const product = LIST_PRODUCTS.find((item) => { return item.id === pid })
@@ -65,6 +65,7 @@ const Product = ({ addCart }) => {
 }
 
 const mapStateToProps = state => ({
+  products: GetAllProduct(state)
 })
 
 const mapDispatchToProps = {

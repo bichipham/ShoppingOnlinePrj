@@ -5,7 +5,7 @@ import { GetAllProduct, DecreaseQuantity, AddCart } from '../../reduxcart/action
 import { connect } from 'react-redux'
 import HeaderBar from '../components/headercpn'
 import styles from './shoppingcart.module.css'
-import { QualityInput } from '../components'
+import { QualityInput } from '../components/qualityinput'
 import { calculateTotalMoney, formatNumberToMoney } from '../../utils/utils'
 
 function ShoppingCart ({ products, decreaseQuantity, addCart }) {

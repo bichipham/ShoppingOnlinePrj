@@ -4,6 +4,7 @@ import { LIST_PRODUCTS, LIST_CATE, POPULAR_KEYWORD } from '../../utils/constant'
 import styles from './homepage.module.css'
 import ListProduct from '../components/listproduct'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 export default function HomePage () {
   const router = useRouter()
@@ -18,7 +19,8 @@ export default function HomePage () {
   const renderCategory = (cate) => {
     const { id, name, img } = cate || {}
     return (
-        <a href={'./category/' + id } key={id} className={styles.cateView} onClick={() => router.push('./category/' + id)}>
+      <Link href={`/category/${id}`} key={id}>
+        <a className={styles.cateView}>
           <div >
             <div className={styles.imgCate}>
               <img src={img} alt={name}/>
@@ -28,6 +30,7 @@ export default function HomePage () {
             </div>
           </div>
         </a>
+      </Link>
     )
   }
 
@@ -45,8 +48,8 @@ export default function HomePage () {
   const renderSearchItem = (search) => {
     const { id, searchKey, imgList } = search || {}
     return (
-
-        <a key={id} className={styles.searchView} onClick={() => router.push('./search?s=' + searchKey)}>
+      <Link href={`./search?s=${searchKey}`} key={id}>
+        <a className={styles.searchView}>
             <div className={styles.listImg} >
               {imgList.map((imgUrl, index) => (
                 <img src={imgUrl} width='50px' height='50px' key={id + '_' + index}/>
@@ -55,8 +58,8 @@ export default function HomePage () {
             <div className={styles.searchText} >
               <span>{searchKey}</span>
             </div>
-
         </a>
+      </Link>
 
     )
   }
