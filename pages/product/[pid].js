@@ -6,8 +6,8 @@ import { LIST_PRODUCTS } from '../../utils/constant'
 import HeaderBar from '../components/headercpn'
 import styles from './product.module.css'
 import { formatNumberToMoney } from '../../utils/utils'
-import { QualityInput } from '../components/qualityinput'
-import { ListProduct } from '../components/listproduct'
+import QualityInput from '../components/qualityinput'
+import ListProduct from '../components/listproduct'
 import { AddCart, GetAllProduct } from '../../reduxcart/actions'
 import { connect } from 'react-redux'
 
@@ -63,6 +63,8 @@ const Product = ({ products, addCart }) => {
     </>
   )
 }
+
+// export default Product
 
 const mapStateToProps = state => ({
   products: GetAllProduct(state)

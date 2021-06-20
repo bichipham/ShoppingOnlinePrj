@@ -23,6 +23,8 @@
 }
 .name {
   overflow: hidden;
+  font-size: 14;
+  font-weight: 400;
 }
 .name span {
   font-size: 13px;
@@ -37,4 +39,41 @@
     font-weight: bold;
     line-height: 24px;
 }
- 
+
+.price .discount {
+  background-color: rgb(255,66,78);
+  color: white;
+  padding: 0px 2px;
+  margin-left: 3px;
+  font-size: 13px;
+  font-weight: 700;
+
+}
+
+.product::selection {
+  background-color: #352e7e;
+  color: red;
+}
+
+/*** Mozilla based browsers ***/
+.product::-moz-selection {
+  background-color: #352e7e;
+  color: red;
+}
+
+/***For Other Browsers ***/
+.product::-o-selection {
+  background-color: #352e7e;
+  color: red;
+}
+
+.product::-ms-selection {
+  background-color: #352e7e;
+  color: red;
+}
+
+/*** For Webkit ***/
+.product::-webkit-selection {
+  background-color: #352e7e;
+  color: red;
+}

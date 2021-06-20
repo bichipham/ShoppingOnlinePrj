@@ -4,7 +4,7 @@
 }
 .list {
   display: grid;
-  grid-template-columns:repeat(6, 1fr)
+  grid-template-columns:repeat(10, 1fr)
 }
 .name {
 
@@ -16,6 +16,8 @@
   max-width: 60px;
   max-height: 60px;
   align-items: center;
+  justify-content: center;
+  display: flex
 }
 .imgCate img {
   max-width: 60px;
@@ -32,6 +34,12 @@
   line-height: 20px;
   color: black;
 }
+.cateBG {
+  border-radius: 20px;
+  border-color: red;
+  border-width: 2px;
+  overflow: hidden;
+}
 .block {
   margin: 20px 0px;
   background-color: white;
@@ -44,7 +52,8 @@
 .block .header span {
   font-size: 20px;
   line-height: 25px;
-  font-weight: 600;
+  font-weight: 400;
+  text-transform: uppercase
 }
 
 .listKeyword {
@@ -54,7 +63,8 @@
 
 .listImg {
   flex-direction: row;
-  padding: 8px
+  padding: 8px;
+  display: flex;
 }
 
 .listImg img {
@@ -67,6 +77,7 @@
   border-color: rgb(238, 238, 238);
   border-style: solid;
   margin: 0 15px;
+  text-decoration: none;
 }
 
 .searchView:nth-child(1) .searchText {
@@ -77,6 +88,9 @@
 }
 .searchView:nth-child(3) .searchText {
   background-color:rgb(255, 241, 241);
+}
+.searchView:nth-child(4) .searchText {
+  background-color:rgb(231, 248, 241);
 }
 
 .searchText {

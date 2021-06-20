@@ -4,9 +4,12 @@ import styles from './listproduct.module.css'
 import PropTypes from 'prop-types'
 import { formatNumberToMoney } from '../../../utils/utils'
 import Link from 'next/link'
+import RateStar from '../ratecpn'
 export default function ListProduct ({ list }) {
   const renderProduct = (product) => {
-    const { id, name, img, price } = product || {}
+    const { id, name, img, price, specialPrice } = product || {}
+    const finalPrice = specialPrice || price
+    const discount = specialPrice ? Math.floor(((price - specialPrice) / price * 100)) : 0
     return (
       <Link href={'/product/' + id } key={id} >
             <a className={styles.product} >
@@ -14,11 +17,12 @@ export default function ListProduct ({ list }) {
                   <img src={img} alt={name}/>
               </div>
               <div className={styles.infoView}>
-                  <div className={styles.name}>
-                    <span>{name}</span>
+                  <div>
+                    <span className={styles.name}>{name}</span>
                   </div>
                   <div className={styles.price}>
-                    <span>{formatNumberToMoney(price, 0, 'đ')}</span>
+                    <span>{formatNumberToMoney(finalPrice, 0, 'đ')}</span>
+                    {discount ? <span className={styles.discount}>{`- ${discount}%`}</span> : null }
                   </div>
               </div>
             </a>
