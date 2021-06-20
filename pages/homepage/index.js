@@ -30,7 +30,7 @@ export default function HomePage () {
             </div>
         </div>
           <div style={{ marginTop: 5 }}>
-                <span>{name}</span>
+                <span style={{ color: 'black' }}>{name}</span>
           </div>
         </a>
       </Link>
@@ -61,7 +61,7 @@ export default function HomePage () {
               ))}
             </div>
             <div className={styles.searchText} >
-              <span>{searchKey}</span>
+              <span style={{ color: 'black' }}>{searchKey}</span>
             </div>
         </a>
       </Link>

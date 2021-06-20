@@ -77,3 +77,10 @@
   background-color: #352e7e;
   color: red;
 }
+
+ .freeship {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: 18px;
+}

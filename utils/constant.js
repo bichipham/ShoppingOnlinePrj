@@ -6,7 +6,9 @@ export const LIST_PRODUCTS = [
     img: 'https://salt.tikicdn.com/cache/w444/ts/product/98/18/8c/cde15caec46908066834b9652c79a3ce.jpg',
     price: 150000,
     specialPrice: 145000,
-    rate: 4
+    rate: 4,
+    isCheapest: true,
+    isFreeShip: true
   },
   {
     id: '124',
@@ -15,7 +17,9 @@ export const LIST_PRODUCTS = [
     img: 'https://salt.tikicdn.com/cache/w444/ts/product/59/e2/77/e73c097586e8cca5f4220970baa51930.jpg',
     price: 160000,
     specialPrice: 145000,
-    rate: 4
+    rate: 4,
+    isCheapest: true,
+    isFreeShip: true
   },
   {
     id: '125',
@@ -23,7 +27,8 @@ export const LIST_PRODUCTS = [
     name: 'Sữa tắm',
     img: 'https://salt.tikicdn.com/cache/w444/ts/product/50/2c/46/38fee585d569862bc41da4273f6add47.jpg',
     price: 200000,
-    rate: 4
+    rate: 4,
+    isFreeShip: true
   },
   {
     id: '126',
@@ -32,7 +37,8 @@ export const LIST_PRODUCTS = [
     img: 'https://salt.tikicdn.com/cache/w444/ts/product/98/18/8c/cde15caec46908066834b9652c79a3ce.jpg',
     price: 95000,
     specialPrice: 80000,
-    rate: 4
+    rate: 4,
+    isFreeShip: true
   },
   {
     id: '127',
@@ -41,7 +47,8 @@ export const LIST_PRODUCTS = [
     img: 'https://salt.tikicdn.com/cache/w444/ts/product/98/18/8c/cde15caec46908066834b9652c79a3ce.jpg',
     price: 167000,
     dspecialPrice: 80000,
-    rate: 4
+    rate: 4,
+    isCheapest: true
   },
   {
     id: '128',
@@ -59,18 +66,63 @@ export const LIST_PRODUCTS = [
     img: 'https://salt.tikicdn.com/cache/w444/ts/product/59/e2/77/e73c097586e8cca5f4220970baa51930.jpg',
     price: 163000,
     specialPrice: 80000,
+    rate: 4,
+    isFreeShip: true
+  },
+  {
+    id: '130',
+    cateId: '05',
+    name: 'Sữa tắm 2',
+    img: 'https://salt.tikicdn.com/cache/w444/ts/product/50/2c/46/38fee585d569862bc41da4273f6add47.jpg',
+    price: 205000,
+    discount: 5,
+    rate: 4,
+    isCheapest: true
+  },
+  {
+    id: '131',
+    cateId: '03',
+    name: 'Rửa chén Sunligh 2t',
+    img: 'https://salt.tikicdn.com/cache/w444/ts/product/98/18/8c/cde15caec46908066834b9652c79a3ce.jpg',
+    price: 99000,
+    discount: 5,
     rate: 4
   },
-  { id: '130', cateId: '05', name: 'Sữa tắm 2', img: 'https://salt.tikicdn.com/cache/w444/ts/product/50/2c/46/38fee585d569862bc41da4273f6add47.jpg', price: 205000, discount: 5, rate: 4 },
-  { id: '131', cateId: '03', name: 'Rửa chén Sunligh 2t', img: 'https://salt.tikicdn.com/cache/w444/ts/product/98/18/8c/cde15caec46908066834b9652c79a3ce.jpg', price: 99000, discount: 5, rate: 4 },
   { id: '132', cateId: '04', name: 'Dầu gội bồ kết 2', img: 'https://salt.tikicdn.com/cache/w444/ts/product/98/18/8c/cde15caec46908066834b9652c79a3ce.jpg', price: 169000, discount: 5, rate: 4 },
-  { id: '133', cateId: '01', name: 'Bột giặt OMO 3', img: 'https://salt.tikicdn.com/cache/w444/ts/product/98/18/8c/cde15caec46908066834b9652c79a3ce.jpg', price: 250000, discount: 5, rate: 4 },
+  {
+    id: '133',
+    cateId: '01',
+    name: 'Bột giặt OMO 3',
+    img: 'https://salt.tikicdn.com/cache/w444/ts/product/98/18/8c/cde15caec46908066834b9652c79a3ce.jpg',
+    price: 250000,
+    discount: 5,
+    rate: 4,
+    isFreeShip: true
+  },
   { id: '134', cateId: '02', name: 'Nước xả vải Downny 3', img: 'https://salt.tikicdn.com/cache/w444/ts/product/59/e2/77/e73c097586e8cca5f4220970baa51930.jpg', price: 167000, discount: 5, rate: 4 },
   { id: '135', cateId: '05', name: 'Sữa tắm 2', img: 'https://salt.tikicdn.com/cache/w444/ts/product/50/2c/46/38fee585d569862bc41da4273f6add47.jpg', price: 9200000, discount: 5, rate: 4 },
   { id: '136', cateId: '03', name: 'Rửa chén Sunligh 2t', img: 'https://salt.tikicdn.com/cache/w444/ts/product/98/18/8c/cde15caec46908066834b9652c79a3ce.jpg', price: 195000, discount: 5, rate: 4 },
-  { id: '137', cateId: '04', name: 'Dầu gội bồ kết 2', img: 'https://salt.tikicdn.com/cache/w444/ts/product/98/18/8c/cde15caec46908066834b9652c79a3ce.jpg', price: 167500, discount: 5, rate: 4 },
+  {
+    id: '137',
+    cateId: '04',
+    name: 'Dầu gội bồ kết 2',
+    img: 'https://salt.tikicdn.com/cache/w444/ts/product/98/18/8c/cde15caec46908066834b9652c79a3ce.jpg',
+    price: 167500,
+    discount: 5,
+    rate: 4,
+    isFreeShip: true
+  },
   { id: '138', cateId: '06', name: 'Hoa trang trí 1', img: 'https://salt.tikicdn.com/cache/w444/ts/product/df/44/42/dac51d4ab44cc37720487ec2e6ea59e4.jpg', price: 167500, discount: 5, rate: 4 },
-  { id: '139', cateId: '06', name: 'Hoa trang trí 2', img: 'https://salt.tikicdn.com/cache/w444/ts/product/df/44/42/dac51d4ab44cc37720487ec2e6ea59e4.jpg', price: 167500, discount: 5, rate: 4 },
+  {
+    id: '139',
+    cateId: '06',
+    name: 'Hoa trang trí 2',
+    img: 'https://salt.tikicdn.com/cache/w444/ts/product/df/44/42/dac51d4ab44cc37720487ec2e6ea59e4.jpg',
+    price: 167500,
+    discount: 5,
+    rate: 4,
+    isCheapest: true
+  },
   { id: '140', cateId: '06', name: 'Hoa trang trí 3', img: 'https://salt.tikicdn.com/cache/w444/ts/product/df/44/42/dac51d4ab44cc37720487ec2e6ea59e4.jpg', price: 167500, discount: 5, rate: 4 },
   {
     id: '141',
@@ -86,7 +138,8 @@ export const LIST_PRODUCTS = [
     name: 'Quần áo váy đầm 1',
     img: 'https://salt.tikicdn.com/cache/w444/ts/product/65/53/50/6d14ebba13645d761886ef6410eb61a0.jpg',
     price: 167500,
-    specialPrice: 166000
+    specialPrice: 166000,
+    isFreeShip: true
   },
   {
     id: '143',
@@ -95,7 +148,8 @@ export const LIST_PRODUCTS = [
     img: 'https://salt.tikicdn.com/cache/w444/ts/product/a8/6f/0b/df5ed57888a787a4465db191bc442d37.png',
     price: 167500,
     discount: 5,
-    rate: 4
+    rate: 4,
+    isFreeShip: true
   }
 ]
 export const LIST_CATE = [
