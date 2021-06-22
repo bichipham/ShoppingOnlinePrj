@@ -14,9 +14,8 @@ export default function ListProduct ({ list }) {
             <a className={styles.product} >
               <div className={styles.imgView}>
                   <img src={img} alt={name} />
+                  {isFreeShip ? <img src='/ic_free_fast.png' className={styles.freeship}/> : null}
               </div>
-                  {/* {isFreeShip ? <img src='/cheapest.png' className={styles.freeship}/> : null} */}
-
               <div className={styles.infoView}>
                   <div>
                     <span className={styles.name}>{name}</span>

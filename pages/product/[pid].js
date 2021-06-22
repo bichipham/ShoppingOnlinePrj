@@ -16,7 +16,8 @@ const Product = ({ products, addCart }) => {
   const { pid } = router.query
   const product = LIST_PRODUCTS.find((item) => { return item.id === pid })
   const { cateId } = product || {}
-  const { name, price, img } = product || {}
+  const { name, price, img, isCheapest, specialPrice } = product || {}
+  const discount = specialPrice ? Math.floor(((price - specialPrice) / price * 100)) : 0
   const amount = useRef(1)
   const [listSuggest, setListSuggest] = useState([])
 
@@ -42,7 +43,19 @@ const Product = ({ products, addCart }) => {
           </div>
           <div className={styles.info}>
             <h1>{name}</h1>
-            <h2>{formatNumberToMoney(price, 0, 'đ')}</h2>
+            {specialPrice
+              ? <div className={styles.priceView}>
+                 <h2>{formatNumberToMoney(specialPrice, 0, 'đ')}</h2>
+                 <span className={styles.discount}>{formatNumberToMoney(price, 0, 'đ')}</span>
+                 {discount ? <span>{`- ${discount}%`}</span> : null }
+              </div>
+              : <div>
+                  <h2>{formatNumberToMoney(price, 0, 'đ')}</h2>
+                </div>}
+
+            <div>
+            {isCheapest ? <img src='/cheapest.png' style={{ height: '18px' }}/> : null}
+            </div>
             <h3>Số lượng: </h3>
             <QualityInput initQuality={1} minimumQuality={1} callback={onChangeQuality} />
             <div className={styles.btnBuy}>

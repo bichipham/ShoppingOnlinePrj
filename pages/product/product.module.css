@@ -46,3 +46,19 @@
     outline: none;
 }
 
+.priceView {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.priceView span {
+    font-size: 15px;
+    line-height: 25px;
+    margin-left: 5px;
+}
+
+.discount { 
+    text-decoration: line-through  
+}
+

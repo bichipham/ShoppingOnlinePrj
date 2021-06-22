@@ -5,8 +5,9 @@ import { GetNumberCart } from '../../../reduxcart/actions'
 import { connect } from 'react-redux'
 import { useRouter } from 'next/router'
 
-const CartIcon = ({ numInCart }) => {
+const CartIcon = ({ numInCart, getNum }) => {
   const router = useRouter()
+  console.log('!!!!!!!!!! getNum ' + JSON.stringify(getNum))
   return (
         <div>
             <a onClick={() => router.push('/shoppingcart')}>
@@ -19,7 +20,8 @@ const CartIcon = ({ numInCart }) => {
 }
 
 const mapStateToProps = state => ({
-  numInCart: GetNumberCart(state).payload._todoProduct.numberCart
+  numInCart: GetNumberCart(state).payload._todoProduct.numberCart,
+  getNum: GetNumberCart(state)
 })
 
 // const mapDispatchToProps = {

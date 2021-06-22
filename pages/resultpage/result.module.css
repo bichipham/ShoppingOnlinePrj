@@ -1,9 +1,9 @@
 .container {
-    background-color: white;
+    margin: 0 7rem;
     display: flex;
     flex-direction: row;
+    background-color: white;
     min-height: 100vh;
-    margin: 0 5rem;
 }
 .siderbar {
     display: flex;

@@ -12,10 +12,15 @@ function todoProduct (state = initProduct, action) {
   console.log('!!!!!!!!!!!!1 todoProduct action ' + JSON.stringify(action))
   console.log('!!!!!!!!!!!!1 todoProduct state ' + JSON.stringify(state))
   let exitItemIndex = -1
+  let totalItem = 0
   switch (action.type) {
     case GET_ALL_PRODUCT:
+      state.Carts.forEach(item => {
+        totalItem += item.quantity
+      })
       return {
-        ...state
+        ...state,
+        totalItem
       }
     case GET_NUMBER_CART:
       return {
