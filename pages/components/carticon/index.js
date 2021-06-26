@@ -1,27 +1,44 @@
 /* eslint-disable react/prop-types */
 
 import React from 'react'
-import { GetNumberCart } from '../../../reduxcart/actions'
+import { GetAllProduct } from '../../../reduxcart/actions'
 import { connect } from 'react-redux'
 import { useRouter } from 'next/router'
 
-const CartIcon = ({ numInCart, getNum }) => {
+const CartIcon = ({ carts }) => {
   const router = useRouter()
-  console.log('!!!!!!!!!! getNum ' + JSON.stringify(getNum))
+  // const sum = carts.reduce(function (sum, item) {
+  //   const updatedSum = sum + item.quantity
+  //   return updatedSum
+  // }, 0)
   return (
         <div>
             <a onClick={() => router.push('/shoppingcart')}>
                 <img src={'/shopping-cart.png'} width={30} height={30}/>
-                {numInCart > 0 ? <span style={{ borderRadius: 20, backgroundColor: 'orange', color: 'white', padding: 2 }}>{numInCart}</span> : null}
+                {carts > 0
+                  ? <span style={{
+                    borderRadius: 40,
+                    backgroundColor: 'orange',
+                    color: 'white',
+                    paddingLeft: '7px',
+                    paddingRight: '7px'
+                  }}>{carts}</span>
+                  : null}
 
             </a>
         </div>
   )
 }
 
+const getAllItemInCarts = (carts) => {
+
+}
+
 const mapStateToProps = state => ({
-  numInCart: GetNumberCart(state).payload._todoProduct.numberCart,
-  getNum: GetNumberCart(state)
+  carts: GetAllProduct(state).payload?._todoProduct.Carts.reduce(function (sum, item) {
+    const updatedSum = sum + item.quantity
+    return updatedSum
+  }, 0)
 })
 
 // const mapDispatchToProps = {

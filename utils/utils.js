@@ -1,3 +1,4 @@
+import { LIST_PRODUCTS } from './constant'
 export const formatNumberToMoney = (number, defaultNum, predicate) => {
   predicate = !predicate ? '' : '' + predicate
   if (
@@ -57,8 +58,10 @@ export const formatNumberToMoney = (number, defaultNum, predicate) => {
 export const calculateTotalMoney = (carts) => {
   let total = 0
   carts.forEach(item => {
-    const { price = 0, quantity = 0 } = item || {}
-    total += price * quantity
+    const { quantity = 0, id } = item || {}
+    const product = LIST_PRODUCTS.find((item) => { return item.id === id })
+    const { price, specialPrice } = product || {}
+    total += (specialPrice || price) * quantity
   })
   return total
 }

@@ -12,15 +12,10 @@ function todoProduct (state = initProduct, action) {
   console.log('!!!!!!!!!!!!1 todoProduct action ' + JSON.stringify(action))
   console.log('!!!!!!!!!!!!1 todoProduct state ' + JSON.stringify(state))
   let exitItemIndex = -1
-  let totalItem = 0
   switch (action.type) {
     case GET_ALL_PRODUCT:
-      state.Carts.forEach(item => {
-        totalItem += item.quantity
-      })
       return {
-        ...state,
-        totalItem
+        ...state
       }
     case GET_NUMBER_CART:
       return {
@@ -37,6 +32,7 @@ function todoProduct (state = initProduct, action) {
           name: action.payload.name,
           img: action.payload.img,
           price: action.payload.price
+          // specialPrice: action.payload.price
         }
         state.Carts.push(cart)
       }
@@ -56,13 +52,16 @@ function todoProduct (state = initProduct, action) {
       }
 
     case DELETE_CART:
-      const quantity_ = state.Carts[action.payload].quantity
+      console.log('!!!!!! DELETE action.payload ' + JSON.stringify(action.payload))
+      exitItemIndex = state.Carts.findIndex((item, index) => { return item.id === action.payload.id })
+      let quantity_ = 0
+      if (exitItemIndex >= 0) {
+        quantity_ = state.Carts[exitItemIndex].quantity
+        state.numberCart = state.numberCart - quantity_
+        state.Carts.splice(exitItemIndex, 1)
+      }
       return {
-        ...state,
-        numberCart: state.numberCart - quantity_,
-        Carts: state.Carts.filter(item => {
-          return item.id !== state.Carts[action.payload].id
-        })
+        ...state
       }
 
     default:

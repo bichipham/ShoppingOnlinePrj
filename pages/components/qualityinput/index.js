@@ -1,5 +1,6 @@
+/* eslint-disable node/no-callback-literal */
 /* eslint-disable react/prop-types */
-import React, { useState, useCallback } from 'react'
+import React, { useState } from 'react'
 
 export default function QualityInput ({ initQuality, minimumQuality = 1, callback }) {
   const [quality, setQuality] = useState(initQuality)
@@ -7,8 +8,10 @@ export default function QualityInput ({ initQuality, minimumQuality = 1, callbac
   const onChange = type => {
     let qual = 0
     if (type === 'add') qual = quality + 1
-    else if (quality === minimumQuality) qual = quality
-    else qual = quality - 1
+    else if (quality === minimumQuality) {
+      qual = quality
+      type = 'isMinimum'
+    } else qual = quality - 1
     setQuality(qual)
     if (callback && typeof callback === 'function') {
       callback({ qual: qual, type: type })

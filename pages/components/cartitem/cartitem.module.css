@@ -1,0 +1,95 @@
+.cartView {
+    margin: 20px 0px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.cartItem {
+    display: flex;
+    flex-direction: row;
+}
+.imgView {
+    margin: 0 10px;
+}
+.imgView img{
+    width: 100px;
+    height: 100px;
+}
+.infoView {
+    padding: 15px 15px
+}
+
+.col1 {
+    width: 398px;
+    padding: 0px 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.col1 span {
+    font-size: 15px;
+    color: rgb(36, 36, 36);
+    margin-bottom: 5px;
+    line-height: 20px;
+}
+
+.col2 {
+    width: 190px;
+    padding: 0px 15px;
+}
+
+.col3 {
+    width: 130px;
+    padding: 0px 15px;
+}
+
+.col4 {
+    width: 120px;
+    padding: 0px 15px;
+}
+
+.col4 span {
+    color: rgb(255, 66, 78);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    display: block;
+}
+
+.col5 {
+    width: 120px;
+    padding: 0px 15px;
+}
+
+.row {
+    display: flex;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 20px 0
+}
+
+.priceView {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.discount {
+    text-decoration: line-through  
+}
+
+.priceView span {
+    font-size: 15px;
+    line-height: 25px;
+    margin-left: 5px;
+}
+
+.freeship {
+    width: 56px;
+    margin-right: 5px;
+}
